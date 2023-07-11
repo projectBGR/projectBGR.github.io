@@ -1,7 +1,11 @@
 # projectBGR.github.io
 
-Hosts my virtual resume. 
+>Hosts my virtual resume. 
+>Still being worked on.
+>Obviously.
+>For now here are some helpful links!
 
-Still being worked on.
+| Title | Link |
+| ------ | ------ |
+| Levels | https://www.levels.fyi/ |
 
-Obviously.
