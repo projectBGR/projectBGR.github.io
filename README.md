@@ -1,4 +1,4 @@
-# projectBGR.github.io
+# projectBGR Main Website
 
 >Hosts my virtual resume. 
 >Still being worked on.
