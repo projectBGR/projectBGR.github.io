@@ -5,7 +5,7 @@
 >Obviously.
 >For now here are some helpful links!
 
-| Title | Link |
-| ------ | ------ |
-| Levels | https://www.levels.fyi/ |
+| Title | Link | | About |
+| ------ | ------ | ------ |
+| Levels | https://www.levels.fyi/ | https://www.levels.fyi/about/ |
 
