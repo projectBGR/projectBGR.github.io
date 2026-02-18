@@ -10,12 +10,22 @@ body {
     color: #fff;
 }
 
+h1 {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+}
+
 #header {
     width: 100%;
     height: 3vh;
     text-align: center;
     background-size: cover;
     background-position: center;
+}
+
+.page-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul {
@@ -25,17 +35,15 @@ nav ul {
     gap: 20px;
 }
 
-#resume-container {
+#page-container {
     width: 100%;
     padding: 40px 20px;
     background: #1a1a1a;
     min-height: 100vh;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+   
 }
 
-#resume-container > div {
+#page-container > div {
     width: 100%;
     max-width: 900px;
 }
@@ -58,3 +66,37 @@ nav ul {
     }
 }
 
+/* CSS Animations */
+
+.typed-out {
+    overflow: hidden;
+    border-right: .15em solid blueviolet;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    width: 0;
+    margin: 0 auto;
+    display: inline-block;
+    max-width: fit-content;
+    animation: 
+        typing 10s steps(150, end) forwards,
+        blink 1s infinite;
+}
+
+.container {
+    display: block;
+    text-align: center;
+}
+
+@keyframes typing {
+    from {width: 0;}
+    to {width: 100%}
+}
+
+.typed-out {
+    max-width: fit-content;
+}
+
+@keyframes blink {
+    from { border-color: transparent}
+    to { border-color: blueviolet}
+}
