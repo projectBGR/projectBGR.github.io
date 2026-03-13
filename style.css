@@ -219,6 +219,13 @@ progress::-webkit-progress-bar {
     flex-direction: column;
 }
 
+.memorial-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .memorial-right {
     display: flex;
     flex-direction: column;
@@ -252,12 +259,6 @@ progress::-webkit-progress-bar {
 
 .memorial-section ul {
     padding-left: 24px;
-}
-
-
-
-
-    border-radius: 8px;
 }
 
 progress::-webkit-progress-value {
