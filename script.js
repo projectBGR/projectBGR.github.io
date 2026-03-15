@@ -27,8 +27,23 @@ function filterToolbox() {
 // Initialize toolbox filter when page loads (only if elements exist)
 document.addEventListener('DOMContentLoaded', function() {
     const filterInput = document.getElementById('categoryFilter');
+    const markdownInput = document.querySelector("md");
     if (filterInput) {
         filterInput.addEventListener('keyup', filterToolbox);
         filterInput.addEventListener('input', filterToolbox);
     }
+    if (markdownInput) {
+        getMarkdownContent(markdownInput);
+    }
 });
+
+function getMarkdownContent(markdownElement) {
+    const markdownPath = markdownElement.getAttribute("data-src");
+    if (!markdownPath) return;
+
+    fetch(markdownPath)
+        .then(response => response.text())
+        .then(text => {
+            markdownElement.innerHTML = marked.parse(text);
+        });
+}
