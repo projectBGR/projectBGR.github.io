@@ -24,23 +24,6 @@ function filterToolbox() {
     });
 }
 
-// Initialize toolbox filter when page loads (only if elements exist)
-document.addEventListener('DOMContentLoaded', function() {
-    const filterInput = document.getElementById('categoryFilter');
-    const markdownInput = document.querySelector("md");
-    const sophieImg = document.querySelector('h1').innerHTML;
-    if (filterInput) {
-        filterInput.addEventListener('keyup', filterToolbox);
-        filterInput.addEventListener('input', filterToolbox);
-    }
-    if (markdownInput) {
-        getMarkdownContent(markdownInput);
-    }
-    if (sophieImg){
-        updateSophiePhotos();
-    }
-});
-
 function getMarkdownContent(markdownElement) {
     const markdownPath = markdownElement.getAttribute("data-src");
     if (!markdownPath) return;
@@ -58,3 +41,25 @@ function updateSophiePhotos() {
         img.src = `../images/sophie/sophie${index}.jpeg`;
     });
 }
+
+// Initialize toolbox filter when page loads (only if elements exist)
+document.addEventListener('DOMContentLoaded', function() {
+    const filterInput = document.getElementById('categoryFilter');
+    const markdownInput = document.querySelector('md');
+    const includesHeader = document.querySelector('h1');
+    
+    if (filterInput) {
+        filterInput.addEventListener('keyup', filterToolbox);
+        filterInput.addEventListener('input', filterToolbox);
+    }
+
+    if (markdownInput) {
+        getMarkdownContent(markdownInput);
+    }
+
+    if (includesHeader) {
+        if(includesHeader.textContent.includes("Sophie")) {
+            updateSophiePhotos();
+        }
+    }
+});
