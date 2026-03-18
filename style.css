@@ -50,6 +50,14 @@ nav ul {
     max-width: 900px;
 }
 
+.memorial-left > div {
+    margin-bottom: 20px;
+}
+
+figure {
+    text-align: center;
+}
+
 #resume-frame {
     width: 100%;
     height: 80vh;

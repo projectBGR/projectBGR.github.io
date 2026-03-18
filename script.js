@@ -28,12 +28,16 @@ function filterToolbox() {
 document.addEventListener('DOMContentLoaded', function() {
     const filterInput = document.getElementById('categoryFilter');
     const markdownInput = document.querySelector("md");
+    const sophieImg = document.querySelector('h1').innerHTML;
     if (filterInput) {
         filterInput.addEventListener('keyup', filterToolbox);
         filterInput.addEventListener('input', filterToolbox);
     }
     if (markdownInput) {
         getMarkdownContent(markdownInput);
+    }
+    if (sophieImg){
+        updateSophiePhotos();
     }
 });
 
@@ -46,4 +50,11 @@ function getMarkdownContent(markdownElement) {
         .then(text => {
             markdownElement.innerHTML = marked.parse(text);
         });
+}
+
+function updateSophiePhotos() {
+    const images = document.querySelectorAll('.memorial-left > div img');
+    images.forEach((img, index) => {
+        img.src = `../images/sophie/sophie${index}.jpeg`;
+    });
 }
