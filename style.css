@@ -280,6 +280,27 @@ progress::-webkit-progress-bar {
     padding-left: 24px;
 }
 
+/* CSS is little wonky here - need to find a fix for fitness page */
+
+.fit-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.fit-column {
+    flex: all;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 progress::-webkit-progress-value {
     background: #4caf50;
     border-radius: 8px;

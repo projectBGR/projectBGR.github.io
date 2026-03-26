@@ -19,23 +19,63 @@
         <h1 class="page-title">The Health Hub</h1>
         <p class="page-center">Encompassing all things related to health and fitness.</p>
 
-        <div class="memorial-section" style="margin-top: 2em;">
-            This is section 1: <b>WORKOUT/EXERCISES</b>. This section will be on the left side of the page. 
-            It will contain a list of buttons that will allow the user to select following pages: 
-            CURRENT ROUTINE, EXERCISE LIBRARY (STRENGTH TRAINING, CARDIO, BREATHING, STRETCHING, YOGA, ETC), ACHIEVEMENTS, RESOURCES
-        </div> 
-        
-        <div class="memorial-section" style="margin-top: 2em;">
-            This is section 2: <b>WEEKLY PROGRESS</b>. This section will be in middle of the page and will contain progress bars showing current progress on
-            different fitness goals for the current week. It will also display a little emblem/badge icon for the current monthly fitness challenge.
-            There will be a button on the bottom that will will take the user to a page with all stats and progress for previous weeks.
-        </div>   
+        <div class="fit-wrapper">
+            
+            <div style="margin-top: 1em;">
+                <div class="fit-column memorial-section">
+                   <b>WORKOUT REGIMEN</b> 
+                    <p>Snapshot of my workout regimen.</p>
+                    <div>
+                        <a href="../fitness/training.html">
+                        <button class="book-notes-button">Strength Training</button>
+                        </a> 
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <a href="../fitness/steps.html">
+                        <button class="book-notes-button">Step History</button>
+                        </a> 
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <a href="../fitness/exercises.html">
+                        <button class="book-notes-button">Exercise Resources</button>
+                        </a> 
+                    </div>
+                </div>
+            </div>
 
-        <div class="memorial-section" style="margin-top: 2em;">
-            This is section 3: <b>MEAL PREP</b>. This section will be on the right side of the page and will contain a list of buttons that will
-            allow the user to select following pages: CURRENT MEAL PLAN, RECIPE LIBRARY, ACHIEVEMENTS, RESOURCES
+            <div class="fit-column memorial-section" style="margin-top: 1em;">
+               <b>WEEKLY PROGRESS</b> This section will be in middle of the page and will contain
+                progress bars showing current progress on
+                different fitness goals for the current week. It will also display a little emblem/badge icon for the
+                current monthly fitness challenge.
+                There will be a button on the bottom that will will take the user to a page with all stats and progress
+                for previous weeks.
+                <h3 class="book-title">STEPS</h3>
+                    <div class="progress-wrap">
+                        <label>Progress: <span class="progress-label">68%</span></label>
+                        <progress value="68" max="100"></progress>
+                    </div>
+                <h3 class="book-title">GYM</h3>
+                    <div class="progress-wrap">
+                        <label>Progress: <span class="progress-label">68%</span></label>
+                        <progress value="68" max="100"></progress>
+                    </div>
+                <h3 class="book-title" style="">HEALTHY EATING</h3>
+                    <div class="progress-wrap">
+                        <label>Progress: <span class="progress-label">68%</span></label>
+                        <progress value="68" max="100"></progress>
+                    </div>
+            </div>
+
+            <div class="fit-column memorial-section" style="margin-top: 1em;">
+                <b>MEAL PREP</b> This section will be on the right side of the page and will contain
+                a list of buttons that will
+                allow the user to select following pages: CURRENT MEAL PLAN, RECIPE LIBRARY, ACHIEVEMENTS, RESOURCES
+            </div>
+
         </div>
-    
+
+
     </div>
 
     <!-- <div class="memorial-wrapper" style="margin-top: 2em;">
