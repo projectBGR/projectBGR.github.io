@@ -50,6 +50,11 @@ nav ul {
     max-width: 900px;
 }
 
+/* Fitness page specific */
+#page-container.fitness > div {
+    max-width: 100%;
+}
+
 .memorial-left > div {
     margin-bottom: 20px;
 }
@@ -195,7 +200,7 @@ blockquote {
 }
 
 .progress-wrap {
-    width: 80%;
+    width: 100%;
 }
 
 .book-notes-button {
@@ -211,12 +216,27 @@ blockquote {
 
 progress {
     width: 100%;
-    height: 14px;
+    height: 16px;
     appearance: none;
+    border-radius: 8px;
 }
 
 progress::-webkit-progress-bar {
-    background: #333;
+    background: #1a2332;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #4caf50, #66bb6a);
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #4caf50, #66bb6a);
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
 /* Memorial page styles for Sophie */
@@ -284,27 +304,225 @@ progress::-webkit-progress-bar {
 
 .fit-wrapper {
     display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    min-height: 80vh;
+    justify-content: space-between;
     align-items: stretch;
     gap: 20px;
+    flex-wrap: nowrap;
+    padding: 20px;
 }
 
 .fit-column {
-    flex: all;
-    height: 100%;
+    flex: 1 1 calc(33.333% - 14px);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    padding: 10px;
 }
+
+.fit-column h2 {
+    text-align: center;
+    width: 100%;
+}
+
+.fitness-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.8rem;
+    table-layout: fixed;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.fitness-table th {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: #fff;
+    font-weight: 600;
+    border: 2px solid #2a5aa8;
+}
+
+.fitness-table th,
+.fitness-table td {
+    border: 1px solid #555;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 0.75rem;
+    width: 20%;
+    vertical-align: middle;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.2;
+    max-height: 3em;
+}
+
+.fitness-table tbody tr {
+    background-color: #0a0a0a;
+    transition: background-color 0.2s ease;
+}
+
+.fitness-table tbody tr:hover {
+    background-color: #1a1a1a;
+}
+
+/* Responsive column hiding for workout table */
+/* Columns: Exercise(1), Muscle(2), Sets(3), Reps(4), Weight(5) */
+@media (max-width: 1024px) {
+    .fitness-table tbody tr td:nth-child(5),
+    .fitness-table thead tr th:nth-child(5) {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .fitness-table tbody tr td:nth-child(4),
+    .fitness-table thead tr th:nth-child(4),
+    .fitness-table tbody tr td:nth-child(5),
+    .fitness-table thead tr th:nth-child(5) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .fitness-table tbody tr td:nth-child(3),
+    .fitness-table thead tr th:nth-child(3),
+    .fitness-table tbody tr td:nth-child(4),
+    .fitness-table thead tr th:nth-child(4),
+    .fitness-table tbody tr td:nth-child(5),
+    .fitness-table thead tr th:nth-child(5) {
+        display: none;
+    }
+}
+
+.dashboard-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.dashboard-actions a {
+    text-decoration: none;
+    width: 100%;
+}
+
+.progress-metric {
+    margin-top: 12px;
+    width: 100%;
+}
+
+#weekly-progress-metrics {
+    background: linear-gradient(135deg, #0f1419, #1a1f2e);
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(74, 144, 226, 0.3);
+}
+
+.week-header {
+    display: flex;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #4a90e2;
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.3);
+}
+
+.metric-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.challenge-card {
+    background: linear-gradient(135deg, #1a2332, #252d3e);
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 16px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.challenge-card h3 {
+    margin-bottom: 8px;
+    color: #4a90e2;
+    text-align: center;
+}
+
+#challenge-description {
+    text-align: center;
+    margin-bottom: 12px;
+    color: #ddd;
+}
+
+.challenge-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 12px;
+}
+
+#challenge-emblem {
+    font-size: 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+#challenge-progress {
+    width: 100%;
+    height: 12px;
+    appearance: none;
+    border-radius: 6px;
+    background: #1a2332;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#challenge-progress::-webkit-progress-bar {
+    background: #1a2332;
+    border-radius: 6px;
+}
+
+#challenge-progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #4caf50, #66bb6a);
+    border-radius: 6px;
+}
+
+#challenge-progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #4caf50, #66bb6a);
+    border-radius: 6px;
+}
+
+@media (max-width: 1024px) {
+    .fit-wrapper {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .fit-column {
+        flex: 1 1 100%;
+    }
+}
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-progress::-webkit-progress-value {
-    background: #4caf50;
-    border-radius: 8px;
-}
 
 .progress-label {
     float: right;

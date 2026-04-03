@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js"></script>
+</head>
+
+<body>
+    <div id="header" class="page-center">
+        <div id="navbar-placeholder"></div>
+    </div>
+
+    <div id="page-container" class="fitness" style="text-align: center;">
+        <h1 class="page-title">The Health Hub</h1>
+        <p class="page-center">Encompassing all things related to health and fitness.</p>
+
+        <div class="fit-wrapper">
+            <div class="fit-column memorial-section">
+                <h2>WORKOUT REGIMEN</h2>
+                <p>Snapshot of my workout regimen.</p>
+
+                <table id="workout-table" class="fitness-table">
+                    <thead>
+                        <tr><th>Exercise</th><th>Muscle</th><th>Sets</th><th>Reps</th><th>Weight</th></tr>
+                    </thead>
+                    <tbody id="workout-tbody">
+                        <tr><td colspan="5">Loading...</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="dashboard-actions">
+                    <a href="../fitness/training.html"><button class="book-notes-button">Strength Training</button></a>
+                    <a href="../fitness/steps.html"><button class="book-notes-button">Step History</button></a>
+                    <a href="../fitness/exercises.html"><button class="book-notes-button">Exercise Resources</button></a>
+                </div>
+            </div>
+
+            <div class="fit-column memorial-section">
+                <h2>WEEKLY PROGRESS</h2>
+                <p>Current status of my week.</p>
+
+                <div id="weekly-progress-metrics">
+                    <div class="week-header">
+                        <span>Week of <span id="current-week">Loading...</span></span>
+                    </div>
+                    <div class="progress-metric">
+                        <div class="metric-label"><span>Gym Visits</span><span id="gym-label">0/0</span></div>
+                        <progress id="gym-progress" value="0" max="100"></progress>
+                    </div>
+                    <div class="progress-metric">
+                        <div class="metric-label"><span>Step Goal</span><span id="steps-label">0/0</span></div>
+                        <progress id="steps-progress" value="0" max="100"></progress>
+                    </div>
+                    <div class="progress-metric">
+                        <div class="metric-label"><span>Healthy Eating</span><span id="eating-label">0/0</span></div>
+                        <progress id="eating-progress" value="0" max="100"></progress>
+                    </div>
+                </div>
+
+                <div id="challenge-card" class="challenge-card">
+                    <h3 id="challenge-title">Loading Challenge...</h3>
+                    <p id="challenge-description">Grab a challenge and keep the momentum.</p>
+                    <div class="challenge-meta">
+                        <span id="challenge-month">Month TBD</span>
+                        <span id="challenge-emblem">🏅</span>
+                    </div>
+                    <progress id="challenge-progress" value="0" max="100"></progress>
+                </div>
+
+                <div class="dashboard-actions">
+                    <a href="../fitness/weekly-progress.html"><button class="book-notes-button">Full Week History</button></a>
+                </div>
+            </div>
+
+            <div class="fit-column memorial-section">
+                <h2>MEAL PREP</h2>
+                <p>Quick overview of main meal plan goals.</p>
+
+                <table id="meal-table" class="fitness-table">
+                    <thead>
+                        <tr><th>Meal</th><th>Plan</th><th>Details</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Breakfast</td><td id="meal-breakfast">Loading...</td><td id="meal-breakfast-detail">Loading...</td></tr>
+                        <tr><td>Lunch</td><td id="meal-lunch">Loading...</td><td id="meal-lunch-detail">Loading...</td></tr>
+                        <tr><td>Dinner</td><td id="meal-dinner">Loading...</td><td id="meal-dinner-detail">Loading...</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="dashboard-actions">
+                    <a href="../fitness/meal-plan.html"><button class="book-notes-button">Meal Plan</button></a>
+                    <a href="../fitness/recipes.html"><button class="book-notes-button">Recipe Library</button></a>
+                    <a href="../fitness/meal-notes.html"><button class="book-notes-button">Other Topics</button></a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- <div class="memorial-wrapper" style="margin-top: 2em;">
+        <div class="memorial-section">
+            <blockquote>
+            <p>"If the <b>PATH</b> to what you <b>WANT</b> seems too <b>EASY</b>, then you're on the <b>WRONG</b> path."</p>
+            <footer>— Monkey D. Luffy</footer>
+        </blockquote>
+        </div>
+    </div> -->
+</body>
+
+</html>
