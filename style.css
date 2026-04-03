@@ -199,6 +199,14 @@ blockquote {
     font-size: 0.95rem;
 }
 
+.completed-text {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-align: center;
+    margin: 4px 0;
+    font-style: italic;
+}
+
 .progress-wrap {
     width: 100%;
 }
@@ -508,6 +516,14 @@ progress::-moz-progress-bar {
 #challenge-progress::-moz-progress-bar {
     background: linear-gradient(90deg, #4caf50, #66bb6a);
     border-radius: 6px;
+}
+
+#challenge-completed {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-top: 8px;
+    font-style: italic;
 }
 
 @media (max-width: 1024px) {
