@@ -86,7 +86,7 @@ function parseCSV(text) {
 function getWeekStart(date) {
     const d = new Date(date);
     const day = d.getDay();
-    const diff = d.getDate() - day + (day === 0 ? -6 : 1); // Monday
+    const diff = d.getDate() - day + 1; // Always get Monday
     const monday = new Date(d.setDate(diff));
     return monday.toISOString().slice(0, 10);
 }
@@ -96,6 +96,18 @@ function findCurrentWeekData(data) {
     const currentWeek = getWeekStart(new Date());
     const match = data.find(row => row.week_start === currentWeek);
     return match || data[data.length - 1];
+}
+
+function getWorkoutCategory(muscle) {
+    if (!muscle) return '';
+    const upperMuscles = ['Chest', 'Back', 'Shoulders', 'Biceps', 'Triceps'];
+    const lowerMuscles = ['Quads', 'Hamstrings', 'Calves', 'Glutes'];
+    const coreMuscles = ['Core'];
+    
+    if (upperMuscles.some(m => muscle.includes(m))) return 'upper-row';
+    if (lowerMuscles.some(m => muscle.includes(m))) return 'lower-row';
+    if (coreMuscles.some(m => muscle.includes(m))) return 'core-row';
+    return '';
 }
 
 function updateWorkoutRegimen(data) {
@@ -108,6 +120,7 @@ function updateWorkoutRegimen(data) {
     
     data.forEach(row => {
         const tr = document.createElement('tr');
+        tr.className = getWorkoutCategory(row.Muscle);
         tr.innerHTML = `
             <td>${row.Exercise || '—'}</td>
             <td>${row.Muscle || '—'}</td>
@@ -180,6 +193,24 @@ function updateWeeklyProgress(data) {
     document.getElementById('challenge-emblem').textContent = data.challenge_emblem || '🏅';
 }
 
+function updateTaskList(data) {
+    if (!Array.isArray(data) || data.length === 0) return;
+    
+    const taskItems = document.getElementById('task-items');
+    if (!taskItems) return;
+    
+    taskItems.innerHTML = '';
+    
+    data.forEach(task => {
+        const li = document.createElement('li');
+        li.textContent = task.task_name || 'Unnamed Task';
+        if (task.completed === '1' || task.completed === 'true' || task.completed === true) {
+            li.classList.add('completed');
+        }
+        taskItems.appendChild(li);
+    });
+}
+
 function loadFitnessData() {
     const base = '../fitness';
 
@@ -200,4 +231,10 @@ function loadFitnessData() {
         .then(parseCSV)
         .then(rows => updateMealPrep(findCurrentWeekData(rows)))
         .catch(() => console.warn('Meals CSV not found or failed to load'));
+
+    fetch(`${base}/tasks.csv`)
+        .then(r => r.ok ? r.text() : Promise.reject('no tasks csv'))
+        .then(parseCSV)
+        .then(rows => updateTaskList(rows.filter(row => row.week_start === getWeekStart(new Date()))))
+        .catch(() => console.warn('Tasks CSV not found or failed to load'));
 }
