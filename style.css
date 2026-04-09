@@ -28,11 +28,21 @@ h1 {
     justify-content: center;
 }
 
+nav {
+    width: 100%;
+    overflow-x: auto;
+}
+
 nav ul {
     display: flex;
     list-style: none;
     justify-content: center;
     gap: 20px;
+    flex-wrap: nowrap;
+}
+
+nav ul li {
+    flex: 0 0 auto;
 }
 
 #page-container {
@@ -72,10 +82,22 @@ figure {
 }
 
 .resume-container {
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
     min-height: 80vh;
+    padding: 20px;
+}
+
+.resume-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -85,6 +107,11 @@ figure {
 
     #resume-container {
         padding: 20px 10px;
+    }
+
+    nav ul {
+        gap: 12px;
+        padding: 0 10px;
     }
 }
 
@@ -294,6 +321,10 @@ progress::-moz-progress-bar {
     margin-bottom: 1em;
 }
 
+.poem {
+    overflow-wrap: break-word;
+}
+
 .memorial-intro {
     margin-bottom: 32px;
     text-align: center;
@@ -306,6 +337,21 @@ progress::-moz-progress-bar {
 
 .memorial-section ul {
     padding-left: 24px;
+}
+
+@media (max-width: 768px) {
+    .memorial-wrapper {
+        flex-direction: column;
+    }
+
+    .memorial-left,
+    .memorial-right {
+        flex: 1 1 100%;
+    }
+
+    .poem {
+        text-align: left;
+    }
 }
 
 /* CSS is little wonky here - need to find a fix for fitness page */
@@ -596,14 +642,26 @@ progress::-moz-progress-bar {
     font-style: italic;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .fit-wrapper {
-        width: 100%;
+        flex-direction: column;
         min-height: auto;
     }
 
     .fit-column {
-        flex: 1 1 100%;
+        flex: 1 1 auto;
+    }
+
+    .fit-column:nth-child(2) {
+        order: -1;
+    }
+
+    .fit-column:nth-child(1) {
+        order: 1;
+    }
+
+    .fit-column:nth-child(3) {
+        order: 2;
     }
 }
 
